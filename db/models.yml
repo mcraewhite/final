@@ -1,0 +1,29 @@
+Card:
+    rank: string
+    value: integer
+    suit: string
+    is_face_up: boolean
+    is_wild: boolean
+    is_ace_low: boolean
+
+Game:
+    game_type: string
+    game_name: string
+    rule_set_id: integer
+
+Rule:
+    rule_name: string
+    rule_description: string
+    is_on: boolean
+
+Player:
+    player_name: string
+    user_id: integer
+    seat_position: integer
+    is_dealer: boolean
+    is_table: boolean
+
+User:
+    username: string
+    email: string
+    password: string
