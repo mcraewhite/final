@@ -9,7 +9,7 @@ Card:
 Game:
     game_type: string
     game_name: string
-    rule_set_id: integer
+    game_desc: string
 
 Rule:
     rule_name: string

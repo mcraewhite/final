@@ -23,12 +23,10 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string  "game_type"
-    t.string  "game_name"
-    t.integer "rule_set_id"
+    t.string "game_type"
+    t.string "game_name"
+    t.string "game_desc"
   end
-
-  add_index "games", ["rule_set_id"], name: "index_games_on_rule_set_id"
 
   create_table "players", force: :cascade do |t|
     t.string  "player_name"
