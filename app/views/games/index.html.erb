@@ -1,9 +1,14 @@
 <h1>Select a game to play!</h1>
-
-<table class="table">
+<div class="row">
   <% @games.each do |game| %>
-   <tr>
-     <td><a href="/games/<%= game.id %>"><%= game.game_name %></a></td>
-    </tr>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to image_tag(game.game_image, width: 100), game %>
+        <div class="caption">
+          <h3><%= link_to game.game_name, game %></h3>
+          <p><%= game.game_desc %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>

@@ -1,6 +1,7 @@
 <h1> <%= @game.game_name %> </h1>
 
-<p>Game Type: <%= @game.game_type %> </p>
+<p><%= image_tag(@game.game_image) %> </p>
+<p>Game Type: <%= GameType.find_by(id: @game.gametype_id).type_name %> </p>
 <p>Description: <%= @game.game_desc %> </p>
 
 <a href="/games">Return Home</a>

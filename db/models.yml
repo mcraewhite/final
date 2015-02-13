@@ -5,25 +5,59 @@ Card:
     is_face_up: boolean
     is_wild: boolean
     is_ace_low: boolean
+    hand_id: integer
+
+GameType:
+    type_name: string
+    type_desc: string
+    type_image: string
 
 Game:
-    game_type: string
+    gametype_id: integer
     game_name: string
     game_desc: string
+    game_image: string
 
 Rule:
     rule_name: string
     rule_description: string
     is_on: boolean
 
+RuleSet:
+    rules: integer[]
+
+GameRule:
+    game_id: integer
+    rule_id: integer
+
 Player:
     player_name: string
     user_id: integer
-    seat_position: integer
+    seat_id: integer
+    table_id: integer
     is_dealer: boolean
     is_table: boolean
+    chips: integer
 
 User:
     username: string
     email: string
     password: string
+
+Hand:
+    player_id: integer
+    is_fold: boolean
+    round_id: integer
+
+Round:
+    table_id: integer
+    gamerule_id: integer
+
+Table:
+    pot: integer
+
+Seat:
+    table_id: integer
+    player_id: integer
+    position: integer
+    bet: integer
