@@ -23,9 +23,6 @@ Rule:
     rule_description: string
     is_on: boolean
 
-RuleSet:
-    rules: integer[]
-
 GameRule:
     game_id: integer
     rule_id: integer
@@ -51,7 +48,7 @@ Hand:
 
 Round:
     table_id: integer
-    gamerule_id: integer
+    game_id: integer
 
 Table:
     pot: integer
@@ -60,4 +57,5 @@ Seat:
     table_id: integer
     player_id: integer
     position: integer
+    relative_position: integer
     bet: integer

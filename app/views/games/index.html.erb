@@ -1,11 +1,21 @@
-<h1>Select a game to play!</h1>
+<h1>
+  Select a game to play!
+  <span class="pull-right">
+    <%= link_to "New Game", new_game_path, class: 'btn btn-lg btn-primary' %>
+  </span>
+</h1>
 <div class="row">
   <% @games.each do |game| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <%= link_to image_tag(game.game_image, width: 100), game %>
         <div class="caption">
-          <h3><%= link_to game.game_name, game %></h3>
+          <h3>
+            <%= link_to game.game_name, game %>
+            <span class="pull-right">
+              <%= link_to "Edit", edit_game_path(game), class: 'btn btn-xs btn-success' %>
+            </span>
+          </h3>
           <p><%= game.game_desc %></p>
         </div>
       </div>

@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "game_rules", ["rule_id"], name: "index_game_rules_on_rule_id"
 
   create_table "game_types", force: :cascade do |t|
+    t.string "type_name"
     t.string "type_desc"
     t.string "type_image"
-    t.string "type_name"
   end
 
   create_table "games", force: :cascade do |t|
@@ -73,15 +73,11 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "table_id"
-    t.integer "gamerule_id"
+    t.integer "game_id"
   end
 
-  add_index "rounds", ["gamerule_id"], name: "index_rounds_on_gamerule_id"
+  add_index "rounds", ["game_id"], name: "index_rounds_on_game_id"
   add_index "rounds", ["table_id"], name: "index_rounds_on_table_id"
-
-  create_table "rule_sets", force: :cascade do |t|
-    t.integer "rules"
-  end
 
   create_table "rules", force: :cascade do |t|
     t.string  "rule_description"
@@ -94,6 +90,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "player_id"
     t.integer "position"
     t.integer "bet"
+    t.integer "relative_position"
   end
 
   add_index "seats", ["player_id"], name: "index_seats_on_player_id"
