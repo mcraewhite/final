@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  skip_before_action :require_user, only: [:index, :show]
 
   def index
     @games = Game.all
@@ -18,8 +19,8 @@ class GamesController < ApplicationController
 
   def create
     game_params = params.require(:game).permit!
-    @game = Game.new(game_params)
-    if @game.save
+    @game = Game.create(game_params)
+    if @game.valid?
       redirect_to games_path
     else
       render text: "FAIL"
@@ -34,7 +35,7 @@ class GamesController < ApplicationController
     game_params = params.require(:game).permit!
     @game = Game.find_by(id: params["id"])
     @game.update(game_params)
-    if @game.save
+    if @game.valid?
       redirect_to games_path
     else
       render text: "FAIL"

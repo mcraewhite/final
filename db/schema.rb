@@ -58,13 +58,12 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "hands", ["round_id"], name: "index_hands_on_round_id"
 
   create_table "players", force: :cascade do |t|
-    t.string  "player_name"
     t.integer "user_id"
-    t.boolean "is_dealer",   default: false
-    t.boolean "is_table",    default: false
     t.integer "seat_id"
     t.integer "table_id"
+    t.boolean "is_dealer", default: false
     t.integer "chips"
+    t.integer "bet"
   end
 
   add_index "players", ["seat_id"], name: "index_players_on_seat_id"
@@ -74,6 +73,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "rounds", force: :cascade do |t|
     t.integer "table_id"
     t.integer "game_id"
+    t.integer "pot"
   end
 
   add_index "rounds", ["game_id"], name: "index_rounds_on_game_id"
@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "table_id"
     t.integer "player_id"
     t.integer "position"
-    t.integer "bet"
     t.integer "relative_position"
   end
 
@@ -97,13 +96,15 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "seats", ["table_id"], name: "index_seats_on_table_id"
 
   create_table "tables", force: :cascade do |t|
-    t.integer "pot"
+    t.integer "max_seats"
+    t.integer "open_seats"
+    t.string  "table_name"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password"
-    t.string "username"
+    t.string "password_digest"
+    t.string "name"
   end
 
 end

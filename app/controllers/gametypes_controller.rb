@@ -1,4 +1,5 @@
 class GameTypesController < ApplicationController
+  skip_before_action :require_user, only: [:index, :show]
 
   def index
     @gametypes = GameType.all

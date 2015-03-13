@@ -1,0 +1,19 @@
+<% if @table.errors.any? %>
+  <div class="alert alert-warning">
+    <h2>Some errors prevented this table from being created:</h2>
+    <ul>
+      <% @table.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @table do |form| %>
+  Provide a name for your table:
+  <div class="form-group">
+    <%= form.label :table_name %>
+    <%= form.text_field :table_name, class: "form-control" %>
+  </div>
+  <%= form.button 'Create table', class: "btn btn-success" %>
+<% end %>

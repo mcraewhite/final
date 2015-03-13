@@ -1,0 +1,18 @@
+<h1>Welcome to "<%= @table.table_name %>"! </h1>
+
+<div class = "col">
+  <% @seats.each do |seat| %>
+    <div class="well well-sm">
+      <p>Seat #: <%= seat.id %></p>
+      <p>Name: <%= seat.player.user.name %></p>
+      <p>Chips #: <%= seat.player.chips %></p>
+      <p>Bet #: <%= seat.player.bet %></p>
+      <p>Dealer? : <%= seat.player.is_dealer %></p>
+    </div>
+  <% end %>
+  <div class="well well-lg">
+    Pot: <%= @round.try(:pot) %>
+  </div>
+</div>
+
+<a href="/logout">Leave Game</a>

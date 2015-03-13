@@ -27,19 +27,18 @@ GameRule:
     game_id: integer
     rule_id: integer
 
+User:
+    email: string
+    name: string
+    password_digest: string
+
 Player:
-    player_name: string
     user_id: integer
     seat_id: integer
     table_id: integer
     is_dealer: boolean
-    is_table: boolean
     chips: integer
-
-User:
-    username: string
-    email: string
-    password: string
+    bet: integer
 
 Hand:
     player_id: integer
@@ -49,13 +48,15 @@ Hand:
 Round:
     table_id: integer
     game_id: integer
+    pot: integer
 
 Table:
-    pot: integer
+    table_name: string
+    max_seats: integer
+    open_seats: integer
 
 Seat:
     table_id: integer
     player_id: integer
     position: integer
     relative_position: integer
-    bet: integer
