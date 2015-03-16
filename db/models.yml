@@ -40,6 +40,11 @@ Player:
     chips: integer
     bet: integer
 
+Seat:
+    table_id: integer
+    position: integer
+    relative_position: integer
+
 Hand:
     player_id: integer
     is_fold: boolean
@@ -55,8 +60,3 @@ Table:
     max_seats: integer
     open_seats: integer
 
-Seat:
-    table_id: integer
-    player_id: integer
-    position: integer
-    relative_position: integer

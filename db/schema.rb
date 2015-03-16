@@ -87,12 +87,10 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "seats", force: :cascade do |t|
     t.integer "table_id"
-    t.integer "player_id"
     t.integer "position"
     t.integer "relative_position"
   end
 
-  add_index "seats", ["player_id"], name: "index_seats_on_player_id"
   add_index "seats", ["table_id"], name: "index_seats_on_table_id"
 
   create_table "tables", force: :cascade do |t|

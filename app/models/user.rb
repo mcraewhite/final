@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  belongs_to :player
+  has_one :player
 
   accepts_nested_attributes_for :player, :allow_destroy => true
 
